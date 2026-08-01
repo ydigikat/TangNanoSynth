@@ -1,0 +1,34 @@
+/*
+*  (c) Jason Wilden, 2026
+*/
+#ifndef __FIXED_H__
+#define __FIXED_H__
+
+#include <stdint.h>
+
+#define Q15_ONE ((Q1_15)0x7FFF)    /* approx 0.99997, max representable Q1.15 */
+#define Q15_SHIFT (15)
+
+#define SQ15_ONE ((SQ1_15)0x7FFF)
+#define SQ15_NEG_ONE ((SQ1_15)-0x7FFF)
+#define SQ15_HALF ((SQ1_15)0x3FFF)
+
+/* Fixed point types */
+typedef uint16_t Q1_15;     
+typedef int16_t SQ1_15;
+typedef uint32_t Q24_0;
+typedef uint32_t Q1_24;
+
+ /*
+ * signed multiply with rounding shift.
+ *
+ * 16x16 multiply widens to 32 bits (fits a single PicoRV32 MUL instruction),
+ * then shift right 15 to bring back to Q1.15.
+ */
+static inline int16_t q15_mul(int16_t a, int16_t b)
+{
+  int32_t result = (int32_t)a * (int32_t)b;
+  return (int16_t)(result >> Q15_SHIFT);
+}
+
+#endif /* __FIXED_H__*/
