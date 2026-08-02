@@ -7,17 +7,17 @@
 # additional modules add them to the ADDL variable.
 
 # UUT module name (no extension)
-MOD := buffer
+MOD := midi
 
 # Directories
 CURDIR := $(shell pwd)
 BUILD_DIR := $(CURDIR)/build
-RTL_DIR := $(CURDIR)/../../rtl/mcu/
+RTL_DIR := $(CURDIR)/../../rtl/mcu
 
 # Source files (version controlled)
 UUT := $(RTL_DIR)/$(MOD).sv
 TB  := $(CURDIR)/$(MOD)_tb.sv
-ADDL := 
+ADDL := $(RTL_DIR)/serial_rx.sv
 INCLUDE := $(wildcard $(RTL_DIR)/*.svh)
 SAVE:= $(MOD)_tb.gtkw
 

@@ -1,0 +1,69 @@
+{
+  "extensionVersion": "1.5.4",
+  "fileName": "/home/jason/Projects/TangNanoSynth/hw/test/midi/build/midi_tb.fst",
+  "markerTime": null,
+  "altMarkerTime": null,
+  "displayTimeUnit": "ps",
+  "selectedSignal": {
+    "name": "midi_tb.uut.u_rx.state",
+    "msb": 2,
+    "lsb": 0
+  },
+  "zoomRatio": 0.0048827038914540126,
+  "scrollLeft": 271980,
+  "defaultPixelTime": 1000000,
+  "displayedSignals": [
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 49,
+      "name": "midi_tb.uut.u_rx.rx_i",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "rx_i",
+      "renderType": "binary",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 62,
+      "name": "midi_tb.uut.u_rx.rx_valid",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "rx_valid",
+      "renderType": "binary",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 58,
+      "name": "midi_tb.uut.u_rx.rx_error",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "rx_error",
+      "renderType": "binary",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 67,
+      "name": "midi_tb.uut.u_rx.state",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 1,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "state",
+      "renderType": "multiBit",
+      "valueLinkEnable": false
+    }
+  ]
+}

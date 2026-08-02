@@ -45,7 +45,8 @@ module midi
 // Register offsets (word addressed via addr[5:2])
 //------------------------------------------------------------------------------
 localparam logic [3:0] CR  = 4'h0;  // Control : [10:0] baud divisor
-localparam logic [3:0] SR  = 4'h1;  // Status  : [0] RXNE [1] FULL [2] OVF [3] FERR 
+localparam logic [3:0] SR  = 4'h1;  // Status  : [0] RXNE [1] FULL [2] OVF 
+                                    //           [3] FERR, [15:8] FIFO COUNT
 localparam logic [3:0] RD  = 4'h2;  // RX data : [7:0] reading pops FIFO
 localparam logic [3:0] ICR = 4'h3;  // Clear   : write 1 to [2] OVF, [3] FERR
 
