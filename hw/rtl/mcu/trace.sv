@@ -35,15 +35,13 @@ localparam RD = 4'h03;   // RX data (unused)
 //------------------------------------------------------------------------------
 // Bus Decode
 //------------------------------------------------------------------------------
-logic wr_divisor, wr_uart, rd_status;
-
-assign mem_ready_o = select_i;
+logic wr_divisor, wr_uart, rd_status, bus_read, bus_write;
 
 assign bus_read   = select_i && (mem_wstrb_i == 4'b0000);
 assign bus_write  = select_i && (mem_wstrb_i != 4'b0000);
 
-assign wr_divisor = bus_write && (mem_addr_i[5:2] == CR));
-assign wr_uart    = bus_write && (mem_addr_i[5:2] == TD));
+assign wr_divisor = bus_write && (mem_addr_i[5:2] == CR);
+assign wr_uart    = bus_write && (mem_addr_i[5:2] == TD);
 assign rd_status  = bus_read  && (mem_addr_i[5:2] == SR);
 
 //------------------------------------------------------------------------------

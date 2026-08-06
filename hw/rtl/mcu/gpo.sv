@@ -32,7 +32,7 @@ localparam BSR = 4'h00;               // [31:16] reset, [15:0] set
 //------------------------------------------------------------------------------
 // Bus decode
 //------------------------------------------------------------------------------
-logic wr_pins;
+logic wr_pins, bus_read, bus_write;
 
 assign mem_ready_o = select_i;
 
@@ -69,7 +69,6 @@ end
 // Output 
 //------------------------------------------------------------------------------
 assign gpo_o = gpo;
-assign mem_ready_o = select_i;  
 
 // No read operation.  
 assign mem_rdata_o = 32'h0000_0000;    
