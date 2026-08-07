@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "lramseyer.vaporview",
+    "rashwell.tcl",
+    "bmpenuelas.systemverilog-formatter-vscode",
+    "hudson-river-trading.vscode-slang",
+    "ms-vscode.vscode-serial-monitor",
+    "davidegrayson.riscv-asm",
+    "zixuanwang.linkerscript",
+    "trond-snekvik.gnu-mapfiles",
+    "ms-vscode.cmake-tools",
+    "ms-vscode.cpptools-themes",
+    "ms-vscode.cpptools-extension-pack",
+    "ms-vscode.cpp-devtools",
+    "ms-vscode.cpptools",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "ms-python.debugpy",
+    "ms-python.vscode-python-envs"
+  ]
+}
