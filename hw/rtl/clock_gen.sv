@@ -4,8 +4,8 @@
 `default_nettype none
 
 module clock_gen (  
-    input `VAR  logic clk_i,  
-    input `VAR  logic rst_btn_ni,  
+    input var  logic clk_i,  
+    input var  logic rst_btn_ni,  
     output      logic clk_o,  
     output      logic rst_no    
 );

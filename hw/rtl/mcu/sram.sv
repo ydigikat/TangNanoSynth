@@ -14,15 +14,15 @@ module sram #(
 
 )
 (
-  input `VAR logic        clk_i,
-  input `VAR logic        rst_ni,
-  input `VAR logic        select_i,
+  input var logic        clk_i,
+  input var logic        rst_ni,
+  input var logic        select_i,
 
    // Native memory interface.
   output     logic        mem_ready_o,    // Memory access complete.
-  input `VAR logic [3:0]  mem_wstrb_i,    // Data write strobe (byte enable)
-  input `VAR logic [31:0] mem_addr_i,     // Memory address
-  input `VAR logic [31:0] mem_wdata_i,    // Write data
+  input var logic [3:0]  mem_wstrb_i,    // Data write strobe (byte enable)
+  input var logic [31:0] mem_addr_i,     // Memory address
+  input var logic [31:0] mem_wdata_i,    // Write data
   output     logic [31:0] mem_rdata_o     // Read data
 );
 

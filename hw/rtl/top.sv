@@ -5,9 +5,9 @@
 `include "defs.svh"
 
 module top (
-    input `VAR  logic       clk_i,  
-    input `VAR  logic       rst_btn_ni,
-    input `VAR  logic       midi_i,    
+    input var  logic       clk_i,  
+    input var  logic       rst_btn_ni,
+    input var  logic       midi_i,    
     
 
     // IO lines

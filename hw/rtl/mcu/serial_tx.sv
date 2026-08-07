@@ -5,11 +5,11 @@
 `include "../defs.svh"
 
 module serial_tx (
-  input  `VAR logic        clk_i,
-  input  `VAR logic        rst_ni,
-  input  `VAR logic [10:0] div_i,
-  input  `VAR logic [7:0]  data_i,
-  input  `VAR logic        tx_start_i,
+  input  var logic        clk_i,
+  input  var logic        rst_ni,
+  input  var logic [10:0] div_i,
+  input  var logic [7:0]  data_i,
+  input  var logic        tx_start_i,
   output      logic        tx_done_o,
   output      logic        tx_o
 );

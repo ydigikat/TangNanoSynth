@@ -2,6 +2,7 @@
 project/
 build/
 handoff/
+rtl_iv/
 
 # Analysis tool setups.
 *.dwf3logic

@@ -5,19 +5,19 @@
 `include "../defs.svh"
 
 module vram(
-  input `VAR  logic         clk_i,
-  input `VAR  logic         rst_ni,
+  input var  logic         clk_i,
+  input var  logic         rst_ni,
 
   // CPU port (native memory interface — read-write)
-  input  `VAR logic         cpu_select_i,
+  input  var logic         cpu_select_i,
   output       logic        cpu_ready_o,
-  input  `VAR logic [3:0]   cpu_wstrb_i,
-  input  `VAR logic [31:0]  cpu_addr_i,
-  input  `VAR logic [31:0]  cpu_wdata_i,
+  input  var logic [3:0]   cpu_wstrb_i,
+  input  var logic [31:0]  cpu_addr_i,
+  input  var logic [31:0]  cpu_wdata_i,
   output       logic [31:0] cpu_rdata_o,
 
   // Audio pipeline port (read-only)
-  input  `VAR logic [WORD_ADDRESS_WIDTH-1:0] pipe_addr_i,
+  input  var logic [WORD_ADDRESS_WIDTH-1:0] pipe_addr_i,
   output       logic [31:0]                  pipe_data_o,
   output       logic                         pipe_valid_o
 );

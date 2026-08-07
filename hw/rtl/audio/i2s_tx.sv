@@ -5,11 +5,11 @@
 `include "../defs.svh"
 
 module i2s_tx (
-  input  `VAR logic        clk_i,
-  input  `VAR logic        rst_ni,
+  input  var logic        clk_i,
+  input  var logic        rst_ni,
 
   output logic             req_o,
-  input  `VAR logic [31:0] sample_i,
+  input  var logic [31:0] sample_i,
 
   output logic             aud_bclk_o,
   output logic             aud_lrclk_o,

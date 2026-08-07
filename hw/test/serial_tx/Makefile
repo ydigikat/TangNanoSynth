@@ -12,7 +12,7 @@ MOD := serial_tx
 # Directories
 CURDIR := $(shell pwd)
 BUILD_DIR := $(CURDIR)/build
-RTL_DIR := $(CURDIR)/../../rtl/mcu/
+RTL_DIR := $(CURDIR)/../rtl_iv/mcu/
 
 # Source files (version controlled)
 UUT := $(RTL_DIR)/$(MOD).sv

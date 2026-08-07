@@ -10,14 +10,14 @@ module mcu #(parameter string B0_MEM_FILE,    // ROM byte files
                        string B2_MEM_FILE,
                        string B3_MEM_FILE)
 (
-  input `VAR logic        clk_i,       
-  input `VAR logic        rst_ni,
+  input var logic        clk_i,       
+  input var logic        rst_ni,
 
   // Audio interrupt
-  input `VAR logic        aud_irq_i,  
+  input var logic        aud_irq_i,  
 
   // Pipeline to SOC integration
-  input  `VAR logic[7:0]  pipe_vram_addr_i,
+  input  var logic[7:0]  pipe_vram_addr_i,
   output      logic[31:0] pipe_vram_data_o,
   output      logic       pipe_vram_valid_o,
   output      logic       pipe_vram_update_o,
@@ -28,7 +28,7 @@ module mcu #(parameter string B0_MEM_FILE,    // ROM byte files
   output     logic        trap_o,
   output     logic        trace_o,
   output     logic[7:0]  debug_o,
-  input `VAR logic        midi_i
+  input var logic        midi_i
 );
 
 //------------------------------------------------------------------------------

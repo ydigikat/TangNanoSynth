@@ -54,6 +54,22 @@ The build is scripted using ```/hw/tools/build.tcl.``` and invoked using the com
 | -flash | Programs the bitstream into the FPGA FLASH|
 | -lint  | Lints all source using ```Verilator```|
 | -test  | Runs testbench verifications |
+| -preprocess | Pre-process source for any Gowin EDA specifics|
+
+#### Preprocessing of Testbenches
+
+I use ```iVerilog``` for testbench simulation, however iVerilog does not support all HDL constructs provided by modern SystemVerilog.  
+
+To resolve this, I've opted to preprocess the source so as to not complicate my HDL with macros and conditional compilation.
+
+The python script ```iverilog_pp.py``` creates modified copies of the source at the top-level of the ```test``` folder, the original source is left unchanged.  The testbench ```Makefile``` uses this modified source for execution.
+
+The following preprocessing is applied:
+
+1. ````` keyword is stripped from input ports.  This is required by Gowin EDA when nettype is defaulted to none, unsupported by iVerilog.
+
+
+
 
 #### Firmware Toolchain
 The firmware tools are used to build the firmware binary and unit tests. Firmware should always be built before the hardware as it is handed off to the hardware build for inclusion in the bitstream.

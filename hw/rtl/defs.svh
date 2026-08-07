@@ -4,16 +4,6 @@
 `ifndef __COMMON_DEFS_SVH__
 `define __COMMON_DEFS_SVH__
 
-// Iverilog does not support the var keyword however Gowin EDA requires this to
-// be specified if the default nettype is none. This is because "input logic"
-// could be interpreted as either a wire or variable.  Iverilog does support the
-// wire type of course, but "input wire logic" would be nonsensical syntax.
-`ifdef __ICARUS__
-`define VAR
-`else
-`define VAR var
-`endif
-
 //-----------------------------------------------------------------------------
 // Firmware files.  This should contain the firmware as hex values split 
 // across the 4 (byte) lanes.  The files should be padded to MEM_SIZE with 0s.

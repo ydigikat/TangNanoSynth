@@ -5,16 +5,16 @@
 `include "../defs.svh"
 
 module vrcr(
-  input `VAR  logic         clk_i,
-  input `VAR  logic         rst_ni,
+  input var  logic         clk_i,
+  input var  logic         rst_ni,
 
   output      logic         vram_update_o,   
 
-  input  `VAR logic         select_i,
+  input  var logic         select_i,
   output       logic        mem_ready_o,
-  input  `VAR logic [3:0]   mem_wstrb_i,
-  input  `VAR logic [31:0]  mem_addr_i,
-  input  `VAR logic [31:0]  mem_wdata_i,
+  input  var logic [3:0]   mem_wstrb_i,
+  input  var logic [31:0]  mem_addr_i,
+  input  var logic [31:0]  mem_wdata_i,
   output       logic [31:0] mem_rdata_o
 );
 

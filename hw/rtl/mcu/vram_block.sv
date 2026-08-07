@@ -8,15 +8,15 @@ module vram_block #(
   parameter WORD_ADDRESS_WIDTH = 8    // 1K (256 x 32-bit words, byte-wide lanes)
 )(
   // Port A - CPU (read-write)
-  input  `VAR logic                          clk_a_i,
-  input  `VAR logic                          we_a_i,
-  input  `VAR logic [WORD_ADDRESS_WIDTH-1:0] addr_a_i,
-  input  `VAR logic [7:0]                    data_a_i,
+  input  var logic                          clk_a_i,
+  input  var logic                          we_a_i,
+  input  var logic [WORD_ADDRESS_WIDTH-1:0] addr_a_i,
+  input  var logic [7:0]                    data_a_i,
   output       logic [7:0]                   data_a_o,
 
   // Port B - pipeline (read-only)
-  input  `VAR logic                          clk_b_i,
-  input  `VAR logic [WORD_ADDRESS_WIDTH-1:0] addr_b_i,
+  input  var logic                          clk_b_i,
+  input  var logic [WORD_ADDRESS_WIDTH-1:0] addr_b_i,
   output       logic [7:0]                   data_b_o
 );
 

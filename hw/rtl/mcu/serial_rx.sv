@@ -5,10 +5,10 @@
 `include "../defs.svh"
 
 module serial_rx (
-  input  `VAR logic        clk_i,
-  input  `VAR logic        rst_ni,
-  input  `VAR logic [10:0] div_i,
-  input  `VAR logic        rx_i,
+  input  var logic        clk_i,
+  input  var logic        rst_ni,
+  input  var logic [10:0] div_i,
+  input  var logic        rx_i,
   output      logic [7:0]  rx_data_o,
   output      logic        rx_valid_o,
   output      logic        rx_error_o,

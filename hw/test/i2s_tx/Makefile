@@ -6,7 +6,7 @@ MOD := i2s_tx
 # Directories
 CURDIR := $(shell pwd)
 BUILD_DIR := $(CURDIR)/build
-RTL_DIR := $(CURDIR)/../../rtl/audio/
+RTL_DIR := $(CURDIR)/../rtl_iv/audio/
 
 # Source files  
 DUT := $(RTL_DIR)/$(MOD).sv

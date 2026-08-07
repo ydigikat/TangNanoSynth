@@ -9,11 +9,11 @@ module buffer #(
     parameter unsigned DATA_WIDTH=8,
     parameter unsigned BUF_ADDR_SIZE=$clog2(BUF_SIZE)
 ) (
-    input `VAR logic                  clk_i,
-    input `VAR logic                  rst_ni,
+    input var logic                  clk_i,
+    input var logic                  rst_ni,
 
-    input `VAR logic                  wr_i, rd_i,
-    input `VAR logic [DATA_WIDTH-1:0] wdata_i,
+    input var logic                  wr_i, rd_i,
+    input var logic [DATA_WIDTH-1:0] wdata_i,
     output     logic [DATA_WIDTH-1:0] rdata_o,
 
     output     logic                  empty_o,

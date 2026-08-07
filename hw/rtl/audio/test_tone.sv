@@ -5,10 +5,10 @@
 `include "../defs.svh"
 
 module test_tone (
-    input `VAR logic clk_i,
-    input `VAR logic rst_ni,
-    input `VAR logic[15:0] fcw_i,
-    input `VAR logic sample_req_i,
+    input var logic clk_i,
+    input var logic rst_ni,
+    input var logic[15:0] fcw_i,
+    input var logic sample_req_i,
     output logic [31:0] sample_o
 
 );
