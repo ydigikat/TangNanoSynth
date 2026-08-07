@@ -10,6 +10,10 @@ module clock_gen (
     output    logic rst_no
 );
 
+
+
+  /* slang lint_off unassigned-variable unconnected-port */
+
   logic clk, pll_locked;
 
   rPLL #(
@@ -36,9 +40,9 @@ module clock_gen (
       .CLKOUTD3_SRC("CLKOUT"),
       .DEVICE("GW1NR-9C")
   ) u_pll (
-      .CLKIN(clk_i),
+      .CLKIN (clk_i),
       .CLKOUT(clk),
-      .LOCK(pll_locked),
+      .LOCK  (pll_locked),
 
       // Unused      
       .RESET(1'b0),
@@ -52,7 +56,7 @@ module clock_gen (
       .FDLY({1'b0, 1'b0, 1'b0, 1'b0})
   );
 
-
+  /* slang lint_on unassigned-variable unconnected-port*/
 
   //------------------------------------------------------------------------------
   // State registers

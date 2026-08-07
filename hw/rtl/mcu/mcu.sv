@@ -25,7 +25,7 @@ module mcu #(
     // Module IO 
     output    logic [15:0] gpo_o,
     output    logic        trap_o,
-    output    logic        trace_o,    
+    output    logic        trace_o,
     input var logic        midi_i
 );
 
@@ -174,7 +174,7 @@ module mcu #(
       .cpu_addr_i  (mem_addr),
       .cpu_wstrb_i (mem_wstrb),
       .cpu_wdata_i (mem_wdata),
-      .cpu_rdata_o (vram_rdata)      
+      .cpu_rdata_o (vram_rdata)
   );
 
   //------------------------------------------------------------------------------

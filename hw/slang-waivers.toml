@@ -1,6 +1,4 @@
 # slang linting waivers
 
-#[[waivers]]
-#file="rtl/**"
-# diagnostic = "unused-variable"
-
+[[waivers]]
+file="/opt/gowin/IDE/simlib/**"
