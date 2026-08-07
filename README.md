@@ -66,7 +66,7 @@ The python script ```iverilog_pp.py``` creates modified copies of the source at 
 
 The following preprocessing is applied:
 
-1. ````` keyword is stripped from input ports.  This is required by Gowin EDA when nettype is defaulted to none, unsupported by iVerilog.
+1. The ```var``` keyword is stripped from input ports.  This is required by Gowin EDA when nettype is defaulted to none, unsupported by iVerilog.
 
 
 
