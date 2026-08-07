@@ -4,34 +4,20 @@
 `default_nettype none
 
 module aud_pipeline (
-    input var  logic   clk_i,
-    input var  logic   rst_ni,
-
-    // Voice RAM
-    output      logic[7:0]  vram_addr_o,    // Address of data to fetch
-    input var  logic[31:0] vram_data_i,    // VRAM data 
-    input var  logic       vram_valid_i,   // CPU is not writing
-    input var  logic       vram_update_i,  // Update is required on next sample
+    input var logic clk_i,
+    input var logic rst_ni,    
 
     // Audio interrupt out
-    output      logic   irq_o,
+    output logic irq_o,
 
     // I2S out
-    output      logic   aud_bclk_o,
-    output      logic   aud_lrclk_o,
-    output      logic   aud_sda_o
+    output logic aud_bclk_o,
+    output logic aud_lrclk_o,
+    output logic aud_sda_o
 );
-
-  logic update_reqd;
-
-
   //------------------------------------------------------------------------------
   // Audio pipeline fans out into 4 voices
   //------------------------------------------------------------------------------
-
-
-
-
 
   // Voice processing here x 4
 
@@ -44,7 +30,9 @@ module aud_pipeline (
   //------------------------------------------------------------------------------
   // I2S peripheral
   //------------------------------------------------------------------------------
-  logic bclk, lrclk, sda;
+  logic bclk, lrclk, sda, req;
+  logic [15:0] left;
+  logic [15:0] right;
 
   i2s_tx it (
       .clk_i(clk_i),
@@ -59,11 +47,6 @@ module aud_pipeline (
   //------------------------------------------------------------------------------
   // Test sawtooth generator
   //------------------------------------------------------------------------------
-  logic [15:0] left;
-  logic [15:0] right;
-  logic req;
-
-
   test_tone tt (
       .clk_i(clk_i),
       .rst_ni(rst_ni),

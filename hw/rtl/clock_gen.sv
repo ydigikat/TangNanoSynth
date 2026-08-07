@@ -9,7 +9,9 @@ module clock_gen (
     output    logic clk_o,
     output    logic rst_no
 );
-  
+
+  logic clk, pll_locked;
+
   rPLL #(
       .FCLKIN("27"),
       .DYN_IDIV_SEL("false"),
@@ -54,7 +56,6 @@ module clock_gen (
   );
 
 
-  logic clk, pll_locked;
 
   //------------------------------------------------------------------------------
   // State registers

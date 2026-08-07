@@ -5,19 +5,20 @@
 
 
 module buffer #(
-    parameter unsigned BUF_SIZE=16,
-    parameter unsigned DATA_WIDTH=8,
-    parameter unsigned BUF_ADDR_SIZE=$clog2(BUF_SIZE)
+    parameter unsigned BUF_SIZE = 16,
+    parameter unsigned DATA_WIDTH = 8,
+    parameter unsigned BUF_ADDR_SIZE = $clog2(BUF_SIZE)
 ) (
-    input var logic                  clk_i,
-    input var logic                  rst_ni,
+    input var logic clk_i,
+    input var logic rst_ni,
 
-    input var logic                  wr_i, rd_i,
+    input var logic                  wr_i,
+    rd_i,
     input var logic [DATA_WIDTH-1:0] wdata_i,
-    output     logic [DATA_WIDTH-1:0] rdata_o,
+    output    logic [DATA_WIDTH-1:0] rdata_o,
 
-    output     logic                  empty_o,
-    output     logic                  full_o
+    output logic empty_o,
+    output logic full_o
 );
 
 
@@ -36,7 +37,7 @@ module buffer #(
       head <= 0;
       tail <= 0;
       full <= 0;
-    end else begin      
+    end else begin
       head <= head_d;
       tail <= tail_d;
       full <= full_d;
@@ -61,14 +62,14 @@ module buffer #(
     full_d = full;
 
     if (wr_i && !full_o) begin
-      head_d = head + 1'd1;  
+      head_d = head + 1'd1;
       if (head_d == tail && !rd_i) begin
         full_d = 1;
       end
     end
 
     if (rd_i && !empty_o) begin
-      tail_d = tail + 1'd1;  
+      tail_d = tail + 1'd1;
       full_d = 0;
     end
   end
@@ -78,7 +79,7 @@ module buffer #(
   //-----------------------------------------------------------------------------
   assign rdata_o = buffer[tail];
   assign empty_o = (head == tail) && !full;
-  assign full_o = full;
+  assign full_o  = full;
 
 endmodule
 

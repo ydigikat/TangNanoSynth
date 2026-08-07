@@ -38,10 +38,8 @@ module top (
   //------------------------------------------------------------------------------
   // MCU 
   //------------------------------------------------------------------------------
-  logic trap, trace, audio_irq, vram_valid, pipe_update;
-  logic[15:0] gpo;
-  logic[7:0] vram_addr;
-  logic[31:0] vram_data;
+  logic trap, trace, audio_irq;
+  logic[15:0] gpo;  
   
   mcu #(             
      .B0_MEM_FILE("../handoff/firmware_b0.hex"),
@@ -53,14 +51,13 @@ module top (
     .clk_i(clk),
     .rst_ni(rst_n),
     .aud_irq_i(audio_irq),    
-    .pipe_vram_addr_i(vram_addr),
-    .pipe_vram_data_o(vram_data),
-    .pipe_vram_valid_o(vram_valid),
-    .pipe_vram_update_o(pipe_update),
+    //.pipe_vram_addr_i(vram_addr),
+    // .pipe_vram_data_o(vram_data),
+    // .pipe_vram_valid_o(vram_valid),
+    // .pipe_vram_update_o(pipe_update),
     .gpo_o(gpo),
     .trap_o(trap),
     .trace_o(trace),
-    .debug_o(d_o),
     .midi_i(midi_i)      
   );
 
@@ -76,11 +73,7 @@ module top (
     .irq_o(audio_irq),
     .aud_bclk_o(bclk),
     .aud_lrclk_o(lrclk),
-    .aud_sda_o(sda),
-    .vram_addr_o(vram_addr),
-    .vram_data_i(vram_data),
-    .vram_valid_i(vram_valid),
-    .vram_update_i(pipe_update)
+    .aud_sda_o(sda)    
   );  
   
 
@@ -95,6 +88,8 @@ module top (
   assign i2s_bclk_o = bclk;
   assign i2s_lrclk_o = lrclk;
   assign i2s_sda_o = sda;
+
+  assign d_o = 0;
 
   
   endmodule

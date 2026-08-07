@@ -9,8 +9,7 @@
 module sram_block #(parameter MEM_FILE, 
                             WORD_ADDRESS_WIDTH)
 (
-  input var logic clk_i,
-  input var logic rst_ni,
+  input var logic clk_i,  
   input var logic clk_en_i,
   input var logic wrt_en_i,
   input var logic[WORD_ADDRESS_WIDTH-1:0] addr_i,
