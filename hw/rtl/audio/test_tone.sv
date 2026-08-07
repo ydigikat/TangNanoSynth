@@ -2,7 +2,7 @@
 // (c) Jason Wilden 2026
 //------------------------------------------------------------------------------
 `default_nettype none
-`include "../defs.svh"
+
 
 module test_tone (
     input var logic clk_i,

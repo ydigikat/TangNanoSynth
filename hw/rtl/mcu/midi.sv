@@ -17,7 +17,6 @@
 //  The irq_o is the signal to the CPU that there is data in the FIFO.
 //------------------------------------------------------------------------------
 `default_nettype none
-`include "../defs.svh"
 
 module midi
 #(

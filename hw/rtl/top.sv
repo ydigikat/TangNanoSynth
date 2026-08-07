@@ -2,7 +2,6 @@
 // (c) Jason Wilden 2026
 //------------------------------------------------------------------------------
 `default_nettype none
-`include "defs.svh"
 
 module top (
     input var  logic       clk_i,  
@@ -45,10 +44,10 @@ module top (
   logic[31:0] vram_data;
   
   mcu #(             
-     .B0_MEM_FILE(`B0_MEM_FILE),
-     .B1_MEM_FILE(`B1_MEM_FILE),
-     .B2_MEM_FILE(`B2_MEM_FILE),
-     .B3_MEM_FILE(`B3_MEM_FILE)
+     .B0_MEM_FILE("../handoff/firmware_b0.hex"),
+     .B1_MEM_FILE("../handoff/firmware_b1.hex"),
+     .B2_MEM_FILE("../handoff/firmware_b2.hex"),
+     .B3_MEM_FILE("../handoff/firmware_b3.hex")
   )
   u_mcu (
     .clk_i(clk),

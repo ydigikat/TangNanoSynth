@@ -6,7 +6,6 @@
 // A simple module providing set/reset of 16 output pins.  
 //------------------------------------------------------------------------------
 `default_nettype none
-`include "defs.svh"
 
 module gpo
 (

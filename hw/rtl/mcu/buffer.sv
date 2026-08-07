@@ -2,7 +2,7 @@
 // (c) Jason Wilden 2026
 //------------------------------------------------------------------------------
 `default_nettype none
-`include "../defs.svh"
+
 
 module buffer #(
     parameter unsigned BUF_SIZE=16,

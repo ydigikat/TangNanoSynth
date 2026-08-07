@@ -2,7 +2,6 @@
 // (c) Jason Wilden 2026
 //------------------------------------------------------------------------------
 `default_nettype none
-`include "../defs.svh"
 
 module aud_pipeline (
     input var  logic   clk_i,

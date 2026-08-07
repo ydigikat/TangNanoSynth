@@ -2,7 +2,6 @@
 // (c) Jason Wilden 2026
 //------------------------------------------------------------------------------
 `default_nettype none
-`include "../defs.svh"
 
 module vram_block #(
   parameter WORD_ADDRESS_WIDTH = 8    // 1K (256 x 32-bit words, byte-wide lanes)

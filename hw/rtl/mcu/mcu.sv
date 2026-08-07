@@ -1,9 +1,7 @@
 //------------------------------------------------------------------------------
 // (c) Jason Wilden 2026
 //------------------------------------------------------------------------------
-
 `default_nettype none
-`include "defs.svh"
 
 module mcu #(parameter string B0_MEM_FILE,    // ROM byte files
                        string B1_MEM_FILE,
