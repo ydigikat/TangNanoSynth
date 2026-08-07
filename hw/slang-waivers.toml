@@ -1,6 +1,6 @@
 # slang linting waivers
 
-[[waivers]]
-file="rtl/**"
-diagnostic = "unused-variable"
+#[[waivers]]
+#file="rtl/**"
+# diagnostic = "unused-variable"
 

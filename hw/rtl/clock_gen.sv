@@ -39,9 +39,6 @@ module clock_gen (
       .CLKIN(clk_i),
       .CLKOUT(clk),
       .LOCK(pll_locked),
-      .CLKOUTP(),
-      .CLKOUTD(),
-      .CLKOUTD3(),
 
       // Unused      
       .RESET(1'b0),
