@@ -1,7 +1,6 @@
 {
   "build": "hw/project.f",
-  "flags": "--suppress-warnings hw/rtl/mcu/picorv32.v --timescale=1ns/1ps",  
-
+  "flags": "--suppress-warnings hw/rtl/mcu/picorv32.v --timescale=1ns/1ps -v /opt/gowin/IDE/simlib/gw1n/prim_sim.v",  
   "index": [
     {
       "dirs": ["hw/rtl", "hw/test"],
