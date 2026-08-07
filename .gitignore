@@ -3,6 +3,7 @@ project/
 build/
 handoff/
 rtl_iv/
+.slang/local
 
 # Analysis tool setups.
 *.dwf3logic
@@ -12,6 +13,8 @@ rtl_iv/
 # TB trace outputs
 *.fst
 *.log
+
+
 
 
 

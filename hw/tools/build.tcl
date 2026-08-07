@@ -5,14 +5,12 @@
 # Parse command line arguments
 set do_program 0
 set do_flash 0
-set do_lint 0
 set do_test 0
 
 foreach arg $argv {
     switch -- $arg {
         "-program"  { set do_program 1 }
         "-flash"    { set do_flash 1 }
-        "-lint"     { set do_lint 1 }
         "-test"     { set do_test 1 }        
         default    { puts "Warning: Unknown argument: $arg" }
     }
@@ -54,43 +52,7 @@ proc parse_reports {} {
     puts "==================================\n"
 }
 
-# Run Verilator linter on all SystemVerilog files
-proc run_linter {rtl_files include_path} {
-    puts "=================================================================="
-    puts "## Running Verilator Lint"
-    puts "=================================================================="
-    
-    set lint_failed 0
-    foreach file $rtl_files {
-        puts "## Linting: [file tail $file]"
-        if {[catch {exec verilator --lint-only -Wall -Wno-DECLFILENAME -Wno-MODDUP -Wno-UNOPTFLAT -I$include_path $file} lint_output]} {
-            puts $lint_output
-            set lint_failed 1
-        }
-    }
-    
-    if {$lint_failed} {
-        puts "\n## ERROR: Linting failed - build halted"
-        exit 1
-    }
-    
-    puts "## Linting passed"
-    puts "==================================\n"
-}
 
-# Filter out excluded files from lint list
-proc filter_lint_files {rtl_files exclude_list} {
-    set filtered_files {}
-    foreach file $rtl_files {
-        set basename [file tail $file]
-        if {[lsearch -exact $exclude_list $basename] == -1} {
-            lappend filtered_files $file
-        } else {
-            puts "## Skipping lint: $basename (excluded)"
-        }
-    }
-    return $filtered_files
-}
 
 
 # Run simulation tests
@@ -153,7 +115,6 @@ puts "## RTL directory: $RTL_DIR"
 puts "## Project directory: $PROJ_DIR"
 puts "## Bitstream: $BITSTREAM"
 if {$do_test} { puts "## Testing: ENABLED" }
-if {$do_lint} { puts "## Linting: ENABLED" }
 if {$do_program} { puts "## Programming: MEMORY" }
 if {$do_flash} { puts "## Programming: FLASH" }
 if {!$do_program && !$do_flash} { puts "## Programming: SKIPPED" }
@@ -161,48 +122,49 @@ if {!$do_program && !$do_flash} { puts "## Programming: SKIPPED" }
 puts "=================================================================="
 
 
-# RTL file list
-set RTL_FILES [list \
-    "$RTL_DIR/$TOP_MODULE.sv" \
-    "$RTL_DIR/clock_gen.sv" \
-    "$RTL_DIR/mcu/picorv32.v" \
-    "$RTL_DIR/mcu/mcu.sv" \
-    "$RTL_DIR/mcu/gpo.sv" \
-    "$RTL_DIR/mcu/vrcr.sv" \
-    "$RTL_DIR/mcu/serial_tx.sv" \
-    "$RTL_DIR/mcu/buffer.sv" \
-    "$RTL_DIR/mcu/trace.sv" \
-    "$RTL_DIR/mcu/vram.sv" \
-    "$RTL_DIR/mcu/sram.sv" \
-    "$RTL_DIR/mcu/sram_block.sv" \
-    "$RTL_DIR/mcu/vram_block.sv" \
-    "$RTL_DIR/mcu/serial_rx.sv" \
-    "$RTL_DIR/mcu/midi.sv" \
-    "$RTL_DIR/audio/i2s_tx.sv" \
-    "$RTL_DIR/audio/test_tone.sv" \
-    "$RTL_DIR/audio/aud_pipeline.sv" 
-]
+# Read the filelist from the tools/slang/files.f
+proc read_rtl_filelist {base_dir filelist} {
+    set handle [open $filelist r]
+    set rtl_files {}
 
-# Files to exclude from linting (vendor primitives, etc)
-set LINT_EXCLUDE [list \
-    "picorv32.v"
-]
+    while {[gets $handle line] >= 0} {
+        # Strip whitespace and full-line / trailing '#' comments.
+        set line [string trim [lindex [split $line "#"] 0]]
+
+        if {$line eq ""} {
+            continue
+        }
+
+        # Slang options such as +incdir+ are not source files for Gowin add_file.
+        if {[string match "+*" $line] || [string match "-*" $line]} {
+            continue
+        }
+
+        # This project convention accepts one .sv or .v source path per line.
+        if {[string match "*.sv" $line] || [string match "*.v" $line]} {
+            lappend rtl_files [file normalize [file join $base_dir $line]]
+        } else {
+            puts "Warning: Ignoring unsupported entry in $filelist: $line"
+        }
+    }
+
+    close $handle
+    return $rtl_files
+}
+
+set RTL_FILELIST "$BASE_DIR/hw/project.f"
+set RTL_FILES [read_rtl_filelist $BASE_DIR $RTL_FILELIST]
 
 # Optional test step - runs first if requested
 if {$do_test} {
     run_tests $TEST_DIR
     # If only testing was requested, exit here
-    if {!$do_lint && !$do_program && !$do_flash} {
+    if {!$do_program && !$do_flash} {
         puts "## Completed."
         exit 0
     }
 }
 
-# Optional linting step
-if {$do_lint} {
-    set lint_files [filter_lint_files $RTL_FILES $LINT_EXCLUDE]
-    run_linter $lint_files $RTL_DIR
-}
 
 # Clear any existing project
 if {[file exists $PROJ_DIR]} {

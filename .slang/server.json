@@ -1,0 +1,9 @@
+{
+  "build": "hw/project.f",
+  "index": [
+    {
+      "dirs": ["hw/rtl", "hw/test"],
+      "excludeDirs": ["build", "rtl_iv"]
+    }
+  ]
+}

@@ -52,7 +52,6 @@ The build is scripted using ```/hw/tools/build.tcl.``` and invoked using the com
 | -----| ------- |
 | -program | Programs the bitstream into the FPGA RAM|
 | -flash | Programs the bitstream into the FPGA FLASH|
-| -lint  | Lints all source using ```Verilator```|
 | -test  | Runs testbench verifications |
 | -preprocess | Pre-process source for any Gowin EDA specifics|
 
@@ -67,8 +66,6 @@ The python script ```iverilog_pp.py``` creates modified copies of the source at 
 The following preprocessing is applied:
 
 1. The ```var``` keyword is stripped from input ports.  This is required by Gowin EDA when nettype is defaulted to none, unsupported by iVerilog.
-
-
 
 
 #### Firmware Toolchain
@@ -87,34 +84,5 @@ The firmware build is scripted using ```CMake``` & ```Ninja``` and invoked using
 
 Unit tests are built with the Unity framework and invokved using the command ```cmake```
 
-### VS Code Extensions (Optional)
-These are entirely optional since the build works without them, however for a rich IDE type environment they are helpful. 
-
-I do not provide an ```extensions.json``` file because there is no way to pin an extension to a version and this is not considered worth addressing by the maintainers. 
-
-Instead I recommend you run the individual commands to install extensions which allows some of them to be pinned to specific versions.  This is usually because an update can break configuration.
-
-
-```sh
-
-# HDL support
-code --install-extension mshr-h.veriloghdl@1.27.4
-code --install-extension dalance.svls-vscode@0.0.3
-code --install-extension lramseyer.vaporview@1.5.4
-
-# C/C++ & RISC ASM support
-code --install-extension ms-vscode.cmake-tools@1.23.52
-code --install-extension ms-vscode.cpptools-extension-pac@1.32.2
-code --install-extension zixuanwang.linkerscript
-code --install-extension trond-snekvik.gnu-mapfiles
-code --install-extension davidegrayson.riscv-asm@1.0.2
-
-# Python support
-code --install-extension ms-python.python
-
-# Others (TCL, Monitor etc)
-code --install-extension rashwell.tcl
-code --install-extension ms-vscode.vscode-serial-monitor
-```
 
 
