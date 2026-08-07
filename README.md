@@ -1,10 +1,10 @@
 # TangNanoSynth
 
-TangNanoSynth is a template design for FPGA based digital synthesisers on the Tang Nano 9K development board (GW1NR-9 FPGA).
+TangNanoSynth will become my template design for FPGA based digital synthesisers on the Tang Nano 9K development board (GW1NR-9 FPGA).
 
-The synth is implemented as a system on chip (SOC) using the soft core picorv32. It serves also as an exploration of some audio techniques, a learning and work-bench exploration tool for me.
+The synth is architected as a system on chip (SOC) using the soft core picorv32. The project also serves as an exploration of applying audio techniques on FPGAs, a learning and work-bench exploration tool for me.
 
->This is a part-time project.  It will likely go for extended periods without updates when my professional work takes up my time.  I am a commercial embedded engineer (with some 44 years experience) but I do not apply the same rigour to my hobby projects as I would to a peer-reviewed commercial project, so other engineers should expect to see things that might make them wince.
+>This is a work in progress as well as a part-time project.  It will likely go for extended periods without updates when my professional work takes up my time.  I am a commercial embedded engineer (with some 44 years experience) but I do not apply the same rigour to my hobby projects as I would to a peer-reviewed commercial project, so other engineers should expect to see things that might make them wince.
 
 ### Documentation
 
@@ -16,7 +16,7 @@ The synth is implemented as a system on chip (SOC) using the soft core picorv32.
 
 ### Tooling
 
-> This tooling configuration is for Linux (Ubuntu 22.04)
+> My tooling configuration is for Linux (Ubuntu 22.04)
 
 The project is set up for work with Microsoft VSCode and includes build tasks to build and program the device.  This is the simplest way to run the build tools.
 
@@ -42,7 +42,8 @@ The hardware toolchain is used to build and program/flash the FPGA bitstream.
 | openFPGALoader | Programming | Open source programmer. The Gowin programmer does not work on Linux|
 | iverilog | Simulation |Hardware simulation/verification|
 | gtkwave | Simulation| Hardware tracing/analysis|
-| Verilator| Linting | Static HDL source analysis|
+| slang| LSP & Linting | IDE support and static analysis|
+| verilatpr | Formatter | IDE code formatting |
 
 *While the Gowin EDA tools are not open source, they do provide a free license for non-commercial use.  I use this because Gowin generates a more optimally sized implementation than Yosys/Apicula open source tooling (for the present) and space is constrained on this device.*
 
@@ -54,6 +55,8 @@ The build is scripted using ```/hw/tools/build.tcl.``` and invoked using the com
 | -flash | Programs the bitstream into the FPGA FLASH|
 | -test  | Runs testbench verifications |
 | -preprocess | Pre-process source for any Gowin EDA specifics|
+
+I use a number of vscode extensions, see the ```extensions.json``` file.
 
 #### Preprocessing of Testbenches
 
