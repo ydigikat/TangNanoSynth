@@ -1,5 +1,7 @@
 {
   "build": "hw/project.f",
+  "flags": "--suppress-warnings hw/rtl/mcu/picorv32.v --timescale=1ns/1ps",  
+
   "index": [
     {
       "dirs": ["hw/rtl", "hw/test"],

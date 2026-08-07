@@ -9,8 +9,7 @@ module clock_gen (
     output    logic clk_o,
     output    logic rst_no
 );
-
-  /* verilator lint_off MODMISSING */
+  
   rPLL #(
       .FCLKIN("27"),
       .DYN_IDIV_SEL("false"),
@@ -53,7 +52,7 @@ module clock_gen (
       .DUTYDA({1'b0, 1'b0, 1'b0, 1'b0}),
       .FDLY({1'b0, 1'b0, 1'b0, 1'b0})
   );
-  /* verilator lint_on MODMISSING */
+
 
   logic clk, pll_locked;
 

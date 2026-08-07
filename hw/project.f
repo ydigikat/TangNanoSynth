@@ -18,3 +18,4 @@ hw/rtl/mcu/midi.sv
 hw/rtl/audio/i2s_tx.sv
 hw/rtl/audio/test_tone.sv
 hw/rtl/audio/aud_pipeline.sv
+/opt/gowin/IDE/simlib/gw1n/prim_sim.v
