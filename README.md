@@ -34,6 +34,8 @@ The project is set up for work with Microsoft VSCode and includes build tasks to
 
 #### Hardware Toolchain
 
+The easiest way to obtain this is to use the ```devcontainer``` capability of vs code.  Download and build my ```GowinDevContainer``` project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  When you open this project subsequently, vscode should offer to 'reopen in devcontainer'.  This will then do some additional configuration and download the required vscode extensions for the tools.  If you don't want to use devcontainers the just decline and delete the ```.devcontainer``` folder.
+
 The hardware toolchain is used to build and program/flash the FPGA bitstream.
 
 | Tool  | Purpose |Notes |
