@@ -35,7 +35,11 @@ I provide a set of VS code tasks to simplify the build process:
 
 Reference:  https://code.visualstudio.com/docs/devcontainers/containers
 
-Clone and build my ```GowinDevContainer``` (https://github.com/ydigikat/GowinDevContainer) project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  There are build instructions in the project folder.
+Clone and build my ```GowinDevContainer``` (https://github.com/ydigikat/GowinDevContainer) project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  This can take a while but only needs to be done once and then the resulting container image can be used for any Gowin EDA based projects.  
+
+There are build instructions in the project folder.
+
+> It may not be obvious but you can start the Gowin proprietary IDE from inside the VS code dev container terminal by typing ```gw_ide```.  My builds use the command line tools however.
 
 Once this is done, if you open any of my FPGA development projects, vscode should offer to 'reopen project in devcontainer'.  Accept this and vscode will do some additional configuration and download all the required vscode extensions for the tools.  
 
