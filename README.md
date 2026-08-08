@@ -32,7 +32,9 @@ The project is set up for work with Microsoft VSCode and includes build tasks to
 
 #### Dev Container Support
 
-The easiest way to obtain this is to use the ```devcontainer``` capability of vs code.  Download and build my ```GowinDevContainer``` project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  There are build instructions in the project folder.
+The easiest way to obtain this is to use the ```devcontainer``` capability of vs code.  
+
+Clone and build my ```GowinDevContainer``` (https://github.com/ydigikat/GowinDevContainer) project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  There are build instructions in the project folder.
 
 Once this is done, if you open any of my FPGA development projects, vscode should offer to 'reopen project in devcontainer'.  Accept this and vscode will do some additional configuration and download all the required vscode extensions for the tools.  
 
