@@ -15,8 +15,9 @@ The synth is architected as a system on chip (SOC) using the soft core picorv32.
 - [Synthesiser Architecture](<docs/04 Synthesiser Architecture.md>)
 
 ### Tooling
+The project is set up to work with Microsoft VS code using my ```GowinDevContainer``` devcontainer image.
 
-The project is set up for work with Microsoft VSCode and includes build tasks to build and program the device.  
+I provide a set of VS code tasks to simplify the build process:
 
 | Task | Purpose |
 | ---- | ------- |
@@ -30,9 +31,7 @@ The project is set up for work with Microsoft VSCode and includes build tasks to
 | FW: Clean | Cleans the firmware build outputs |
 | FW: Test | Run the firmware unit tests (Unity) |
 
-#### Dev Container Support
-
-The easiest way to obtain this is to use the ```devcontainer``` capability of vs code.   
+#### VS Code Devcontainers
 
 If you've not used these then make sure you read and understand what it is all about:  https://code.visualstudio.com/docs/devcontainers/containers
 
