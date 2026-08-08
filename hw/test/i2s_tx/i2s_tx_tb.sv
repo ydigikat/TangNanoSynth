@@ -16,7 +16,7 @@ module i2s_tx_tb ();
   //------------------------------------------------------------------------------
   integer test_failures = 0;
   integer test_count    = 0;
-  time    req_pulse_time = 0;
+  time    req_pulse_time = 0;https://www.perplexity.ai/search/4b445b3b-beef-4fd0-856d-f13a668018a3
 
   //------------------------------------------------------------------------------
   // Clock and reset — 24MHz, period 41.667ns

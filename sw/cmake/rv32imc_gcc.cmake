@@ -4,13 +4,14 @@ cmake_minimum_required(VERSION 3.20)
 # Toolchain (baremetal)
 # --------------------------------------------------------
 set(CMAKE_SYSTEM_NAME Generic)
-set(CMAKE_SYSTEM_PROCESSOR riscv32)
+set(CMAKE_SYSTEM_PROCESSOR riscv64)
 
 # Tool prefix
-set(TOOLS_PREFIX "riscv32-unknown-elf-")
+set(TOOLS_PREFIX "riscv-none-elf-")
 
 # Toolchain location
-set(DEFAULT_TOOLS_DIR "/opt/riscv32i/bin/")
+# set(DEFAULT_TOOLS_DIR "/opt/riscv32i/bin/")
+set(DEFAULT_TOOLS_DIR "/opt/riscv-none-elf/bin/")
 set(TOOLS_DIR "${DEFAULT_TOOLS_DIR}")
 
 # --------------------------------------------------------
@@ -30,5 +31,5 @@ set(CMAKE_C_FLAGS "-march=rv32im -mabi=ilp32 -Os -Wall -Wextra -ffunction-sectio
 set(CMAKE_ASM_FLAGS   "-march=rv32im -mabi=ilp32 -ffunction-sections -fdata-sections")
 set(CMAKE_EXE_LINKER_FLAGS "-march=rv32im -mabi=ilp32 -nostdlib -nostartfiles -Wl,--gc-sections -Wl,-Map,firmware.map")
 
-# Disable try-compile attempts for cross builds
+# Disable try-compile attempts for cross buildsP
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)

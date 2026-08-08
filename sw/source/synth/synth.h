@@ -27,6 +27,7 @@
 struct synth
 {  
   struct voice voice[MAX_VOICES];
+  uint8_t midi_channel;
   param_value_t  params[VOICE_PARAM_COUNT];
 };
 

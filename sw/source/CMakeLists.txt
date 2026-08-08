@@ -51,7 +51,7 @@ target_link_libraries(${TARGET} PRIVATE gcc)
 add_custom_command(TARGET ${TARGET} POST_BUILD
   COMMAND ${CMAKE_SIZE} ${TARGET}
   COMMAND ${CMAKE_OBJCOPY} -O binary ${TARGET} ${TARGET}.bin
-  COMMAND ${CMAKE_OBJDUMP} -d -S ${TARGET} > ${TARGET}.s
+#  COMMAND ${CMAKE_OBJDUMP} -d -S ${TARGET} > ${TARGET}.s
   COMMAND ${CMAKE_COMMAND} -E chdir ${CMAKE_CURRENT_BINARY_DIR} 
           python3 ${PROJECT_SOURCE_DIR}/tools/bin_to_hex.py ${TARGET}.bin ${BLOCK_SIZE}
   # Copy hex files to location expected by FPGA build

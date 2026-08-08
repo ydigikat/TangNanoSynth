@@ -28,6 +28,7 @@ static inline void age_voices(struct synth *synth);
 void synth_init(struct synth *synth)
 {  
   midi_in.channel = MIDI_OMNI;
+  synth->midi_channel = midi_in.channel;
 
   param_init();
   param_create_default_patch(synth->params);

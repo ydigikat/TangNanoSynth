@@ -1,0 +1,57 @@
+{
+  "name": "TangNanoSynth",
+  "image": "gowin-dev:latest",
+  "shutdownAction": "stopContainer",
+
+  // Create non-root user matching host UID/GID at runtime
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode",
+      "uid": "automatic",
+      "gid": "automatic",
+      "configureZshAsDefaultShell": false
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "aaron-bond.better-comments",            
+        "lramseyer.vaporview",
+        "rashwell.tcl",
+        "bmpenuelas.systemverilog-formatter-vscode",
+        "hudson-river-trading.vscode-slang",
+        "ms-vscode.vscode-serial-monitor",
+        "davidegrayson.riscv-asm",
+        "zixuanwang.linkerscript",
+        "trond-snekvik.gnu-mapfiles",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools-themes",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cpp-devtools",
+        "ms-vscode.cpptools",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-python.vscode-python-envs"      
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  "mounts": [
+    "source=/dev,target=/dev,type=bind",
+    // SSH agent forwarding (remove if using HTTPS+PAT)
+    "source=${env:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+  ],
+  "containerEnv": { "SSH_AUTH_SOCK": "/ssh-agent" },
+
+  "runArgs": ["--privileged"],
+
+  // Git safety + avoid file mode noise
+  "postCreateCommand":
+    "git config --global --add safe.directory ${containerWorkspaceFolder} && git config --global core.fileMode false",
+
+  // Fix ownership if the bind-mounted workspace was created by root elsewhere
+  "postStartCommand":
+    "bash -lc 'OWN=$(stat -c %u ${containerWorkspaceFolder} || echo 0); if [ \"$OWN\" != \"$(id -u)\" ]; then sudo chown -R $(id -u):$(id -g) ${containerWorkspaceFolder}; fi' || true"
+}

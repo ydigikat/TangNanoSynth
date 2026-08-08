@@ -4,6 +4,7 @@ build/
 handoff/
 rtl_iv/
 .slang/local
+devcontainer-lock.json
 
 # Analysis tool setups.
 *.dwf3logic
