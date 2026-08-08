@@ -32,7 +32,9 @@ The project is set up for work with Microsoft VSCode and includes build tasks to
 
 #### Dev Container Support
 
-The easiest way to obtain this is to use the ```devcontainer``` capability of vs code.  
+The easiest way to obtain this is to use the ```devcontainer``` capability of vs code.   
+
+If you've not used these then make sure you read and understand what it is all about:  https://code.visualstudio.com/docs/devcontainers/containers
 
 Clone and build my ```GowinDevContainer``` (https://github.com/ydigikat/GowinDevContainer) project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  There are build instructions in the project folder.
 
