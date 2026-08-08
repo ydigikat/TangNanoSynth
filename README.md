@@ -32,20 +32,28 @@ The project is set up for work with Microsoft VSCode and includes build tasks to
 | FW: Clean | Cleans the firmware build outputs |
 | FW: Test | Run the firmware unit tests (Unity) |
 
-#### Hardware Toolchain
+#### Dev Container Support
 
-The easiest way to obtain this is to use the ```devcontainer``` capability of vs code.  Download and build my ```GowinDevContainer``` project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  When you open this project subsequently, vscode should offer to 'reopen in devcontainer'.  This will then do some additional configuration and download the required vscode extensions for the tools.  If you don't want to use devcontainers the just decline and delete the ```.devcontainer``` folder.
+The easiest way to obtain this is to use the ```devcontainer``` capability of vs code.  Download and build my ```GowinDevContainer``` project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  There are build instructions in the project folder.
 
-The hardware toolchain is used to build and program/flash the FPGA bitstream.
+Once this is done, if you open any of my FPGA development projects, vscode should offer to 'reopen project in devcontainer'.  Accept this and vscode will do some additional configuration and download all the required vscode extensions for the tools.  
+
+If you don't want to use devcontainers the just decline at this point and delete the ```.devcontainer``` folder.
+
+Note that VS code will offer to load the ```slang``` release package for the slang extension, accept this otherwise slang won't work.  See the README.md in my ```GowinDevContainer``` project if you want to explicitly include a global installation of slang in container but I'd recommend using the extension's download as it aligns versions between the server and plugin.
+
+#### Hardware toolchain
+
+The hardware toolchain is used to build and program/flash the FPGA bitstream.  If you didn't use the devcontainer approach you will need to install these onto your native operating system.
 
 | Tool  | Purpose |Notes |
 | ----  | ----- | ---- |
-| gw_sh | Build|Gowin EDA command line tool (TCL console) |
+| gw_sh | Build|Gowin EDA command line tool (TCL console) - Install the Gowin IDE to get this |
 | openFPGALoader | Programming | Open source programmer. The Gowin programmer does not work on Linux|
 | iverilog | Simulation |Hardware simulation/verification|
 | gtkwave | Simulation| Hardware tracing/analysis|
 | slang| LSP & Linting | IDE support and static analysis|
-| verilatpr | Formatter | IDE code formatting |
+| verible | Formatter | IDE code formatting |
 
 *While the Gowin EDA tools are not open source, they do provide a free license for non-commercial use.  I use this because Gowin generates a more optimally sized implementation than Yosys/Apicula open source tooling (for the present) and space is constrained on this device.*
 
