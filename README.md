@@ -15,7 +15,7 @@ The synth is architected as a system on chip (SOC) using the soft core picorv32.
 - [Synthesiser Architecture](<docs/04 Synthesiser Architecture.md>)
 
 ### Tooling
-The project is set up to work with Microsoft VS code using my ```GowinDevContainer``` devcontainer image.
+The project is set up to work with Microsoft VS code using my ```GowinDevContainer``` devcontainer image which allows me to easily move between different machines, both Linux and Windows, without having to install tools directly onto them or maintain scripts for different operating systems.  If you've not used these then make sure you read and understand what it is all about:  https://code.visualstudio.com/docs/devcontainers/containers
 
 I provide a set of VS code tasks to simplify the build process:
 
