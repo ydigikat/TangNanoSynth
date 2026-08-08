@@ -33,7 +33,7 @@ I provide a set of VS code tasks to simplify the build process:
 
 #### VS Code Devcontainers
 
-If you've not used these then make sure you read and understand what it is all about:  https://code.visualstudio.com/docs/devcontainers/containers
+Reference:  https://code.visualstudio.com/docs/devcontainers/containers
 
 Clone and build my ```GowinDevContainer``` (https://github.com/ydigikat/GowinDevContainer) project which creates the basic docker container (you will need docker.io for Linux or Docker Desktop for Windows/Mac).  There are build instructions in the project folder.
 
