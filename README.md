@@ -16,9 +16,7 @@ The synth is architected as a system on chip (SOC) using the soft core picorv32.
 
 ### Tooling
 
-> My tooling configuration is for Linux (Ubuntu 22.04)
-
-The project is set up for work with Microsoft VSCode and includes build tasks to build and program the device.  This is the simplest way to run the build tools.
+The project is set up for work with Microsoft VSCode and includes build tasks to build and program the device.  
 
 | Task | Purpose |
 | ---- | ------- |
